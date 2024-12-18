@@ -43,12 +43,12 @@ int main ()
         arr1[i] = arr2[i - 2]; 
     }
 
-    arr3.resize(10); 
-    arr3.push_back(4); 
-    arr3.push_back(2);
-    arr3.insert(arr3.begin() + 4, 5, 56); 
-    arr3.erase(arr3.begin() + 4); 
-    arr3.pop_back();
+    arr3.resize(10); // Thay đổi kích thước của mảng arr3 thành 10 phần tử, chỗ nào không có mặc định là 0
+    arr3.push_back(4); // Thêm 1 phần tử vào cuối mảng arr3
+    arr3.push_back(2); // Thêm 1 phần tử vào cuối mảng arr3
+    arr3.insert(arr3.begin() + 4, 5, 56); // Thêm 5 phần tử có giá trị là 56 bắt đầu từ vị trí thứ 5 (arr3[4])
+    arr3.erase(arr3.begin() + 4); // Xoá phần tử vị trí thứ 3 (arr3[4])
+    arr3.pop_back(); // Xoá phần tử ở cuối mảng
 
     for (int i = 0; i < 8; i++)
     {
@@ -65,6 +65,6 @@ int main ()
         cout << arr3[i] << " ";
     }
     cout << endl; 
-    cout << arr3.size() << endl; //
-    cout << sizeof(arr3); 
+    cout << arr3.size() << endl; // Xuất ra số phần tử trong mảng arr3
+    cout << sizeof(arr3); // Xuất ra kích thước của mảng arr3 tính theo byte
 }
