@@ -16,16 +16,15 @@ int main ()
 {
     int arr1[8] = {};
     int arr2[6] = {2, 3, 1, 4, 7, 9};
-    int position = 0; 
-    int temp = 0; 
-    int min = 0;  
     arr2[4] = 5; 
     for (int i = 0; i < 5; i++)
     {
+        int temp = 0; 
         int min = arr2[i]; 
         int position = i; 
         for (int j = i + 1; j < 6; j++)
         {
+            int temp = 0; 
             if (arr2[j] < min)
             {
                 min = arr2[j]; 
