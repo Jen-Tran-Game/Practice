@@ -37,9 +37,9 @@ int main ()
         arr2[position] = temp; 
     }
 
-    for (int i = 0; i < 6; i++)
+    for (int i = 7; i > 1; i--)
     {
-        arr1[7 - i] = arr2[i]; 
+        arr1[i] = arr2[i - 2]; 
     }
 
     for (int i = 0; i < 8; i++)
