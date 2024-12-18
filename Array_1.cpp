@@ -39,8 +39,11 @@ int main ()
 
     for (int i = 0; i < 6; i++)
     {
-        cout << arr2[i] << " "; 
+        arr1[7 - i] = arr2[i]; 
     }
 
-    return 0; 
+    for (int i = 0; i < 8; i++)
+    {
+        cout << arr1[i] << " "; 
+    }
 }
