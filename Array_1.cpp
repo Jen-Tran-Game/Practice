@@ -15,15 +15,16 @@ using namespace std;
 
 int main ()
 {
-    vector<int> arr1(8, 0); 
-    vector<int> arr2 = {2, 3, 1, 4, 7, 9};
+    int arr1[8] = {};
+    int arr2[6] = {2, 3, 1, 4, 7, 9};
+    vector<int> arr3 = {1, 6, 9, 5, 4, 3, 8}; 
     arr2[4] = 5; 
     for (int i = 0; i < 5; i++)
     {
         int temp = 0; 
         int min = arr2[i]; 
         int position = i; 
-        for (int j = i + 1; j < arr2.size(); j++)
+        for (int j = i + 1; j < 6; j++)
         {
             int temp = 0; 
             if (arr2[j] < min)
@@ -37,20 +38,33 @@ int main ()
         arr2[position] = temp; 
     }
 
-    for (int i = arr1.size(); i > 1; i--)
+    for (int i = 7; i > 1; i--)
     {
         arr1[i] = arr2[i - 2]; 
     }
-    arr1.push_back(6); // Thêm 1 phần tử vào cuối mảng arr1
-    arr1.push_back(7); // Thêm 1 phần tử vào cuối mảng arr1
-    arr1.erase(arr1.begin() + 3); // Xoá phần tử ở vị trí thứ 4 (arr1[3])
-    arr1.resize(20); // Thay đổi kích thước của mảng arr1 thành 20 phần tử, chỗ nào không có mặc định là 0
-    arr1.insert(arr1.begin() + 5, 6, 11); // Thêm 6 phần tử có giá trị là 11 bắt đầu từ vị trí thứ 6 (arr1[5]) 
-    for (int i = 0; i < arr1.size(); i++)
+
+    arr3.resize(10); 
+    arr3.push_back(4); 
+    arr3.push_back(2);
+    arr3.insert(arr3.begin() + 4, 5, 56); 
+    arr3.erase(arr3.begin() + 4); 
+    arr3.pop_back();
+
+    for (int i = 0; i < 8; i++)
     {
         cout << arr1[i] << " "; 
     }
     cout << endl; 
-    cout << "Size of arr1: " << arr1.size(); 
-    return 0; 
+    for (int i = 0; i < 6; i++)
+    {
+        cout << arr2[i] << " ";
+    }
+    cout << endl; 
+    for (int i = 0; i < arr3.size(); i++)
+    {
+        cout << arr3[i] << " ";
+    }
+    cout << endl; 
+    cout << arr3.size() << endl; //
+    cout << sizeof(arr3); 
 }
