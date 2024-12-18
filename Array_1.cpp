@@ -9,20 +9,21 @@
     5. Lấy được kích thước của mảng arr1 ra L1
  */
 #include <iostream>
+#include <vector>
 
 using namespace std; 
 
 int main ()
 {
-    int arr1[8] = {};
-    int arr2[6] = {2, 3, 1, 4, 7, 9};
+    vector<int> arr1(8, 0); 
+    vector<int> arr2 = {2, 3, 1, 4, 7, 9};
     arr2[4] = 5; 
     for (int i = 0; i < 5; i++)
     {
         int temp = 0; 
         int min = arr2[i]; 
         int position = i; 
-        for (int j = i + 1; j < 6; j++)
+        for (int j = i + 1; j < arr2.size(); j++)
         {
             int temp = 0; 
             if (arr2[j] < min)
@@ -36,12 +37,16 @@ int main ()
         arr2[position] = temp; 
     }
 
-    for (int i = 7; i > 1; i--)
+    for (int i = arr1.size(); i > 1; i--)
     {
         arr1[i] = arr2[i - 2]; 
     }
-
-    for (int i = 0; i < 8; i++)
+    arr1.push_back(6); // Thêm 1 phần tử vào cuối mảng arr1
+    arr1.push_back(7); // Thêm 1 phần tử vào cuối mảng arr1
+    arr1.erase(arr1.begin() + 3); // Xoá phần tử ở vị trí thứ 4 (arr1[3])
+    arr1.resize(20); // Thay đổi kích thước của mảng arr1 thành 20 phần tử, chỗ nào không có mặc định là 0
+    arr1.insert(arr1.begin() + 5, 6, 11); // Thêm 6 phần tử có giá trị là 11 bắt đầu từ vị trí thứ 6 (arr1[5]) 
+    for (int i = 0; i < arr1.size(); i++)
     {
         cout << arr1[i] << " "; 
     }
