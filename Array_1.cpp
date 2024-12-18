@@ -50,4 +50,7 @@ int main ()
     {
         cout << arr1[i] << " "; 
     }
+    cout << endl; 
+    cout << "Size of arr1: " << arr1.size(); 
+    return 0; 
 }
