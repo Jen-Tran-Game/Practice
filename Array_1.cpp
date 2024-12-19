@@ -1,15 +1,36 @@
 /* Đề bài: 
-    1. Tạo một mảng rỗng arr1 kích thước 8, 
+    1.(done) Tạo một mảng rỗng arr1 kích thước 8, 
     một mảng arr2 với 6 phần tử {2, 3, 1, 4, 7, 9}
-    2. Thay đổi giá trị phần tử thứ 5 của mảng arr2 từ 7 thành 5
-    3. Sắp xếp arr2 the thứ tự tăng dần và gán vào arr1 từ dưới lên
+    2.(done) Thay đổi giá trị phần tử thứ 5 của mảng arr2 từ 7 thành 5
+    3.(done) Sắp xếp arr2 the thứ tự tăng dần và gán vào arr1 từ dưới lên
     VD: output arr1 = {0, 0, 1, 2, 3, 4, 5, 9}
-    4. Mảng trong C++ có cố định không, trường hợp không biết trước có bao nhiêu phần tử 
+    4.(done) Mảng trong C++ có cố định không, trường hợp không biết trước có bao nhiêu phần tử 
     thì có các phương pháp nào để mở rộng mảng ?
-    5. Lấy được kích thước của mảng arr1 ra L1
+    5.(done) Lấy được kích thước của mảng arr1 ra L1
+    6. Tạo file txt nhập nội dung mảng từ bàn phím và lưu vào file txt, sau đó load lại chương 
+    trình với điều kiện đọc file nếu có file thì lấy giá trị từ file nếu không có thì nhập lại 
+    xong thoát 
+    7. Khi chạy chương trình có file và đọc được file thì gán chuỗi số đó vào mảng 1 chiều, kết
+    hợp với mảng 1 chiều trước đó tạo thành vector 2 chiều 
+    8. Tạo 1 mảng hoặc vector kích thước 12 phần tử nhập vào số điện thoại **********, xét ký tự
+    đầu nếu là 0 thì +1 (đầu số Mỹ) nếu là 1 thì đầu số Việt Nam +84 sau đó chuyển mảng thành 
+    chuỗi số điện thoại bắt đầu từ phần tử 2 đồng thời thay 0 thành +84 hoặc +1. Sau đó lưu vào
+    file sdt.txt
+    9. Sau khi tạo file thành công thì tách nhữn đoạn code đó ra thành các hàm xử lý 
+    VD: -Hàm nhập phần tử
+        -Hàm kiểm tra phần tử đầu
+        -Hàm chuyển mảng thành string và replace ký tự đầu thành +84 hoặc +1 sử dụng switch case
+        -Hàm lưu và đọc file 
+    10. Sau đó tạo 1 mảng và 1 vector
+    11. Tạo chương trình con với 2 tham số là mảng và vector 
+    12. bển trong thay đổi giá trị phần tử mảng truyền vào, thay đổi giá trị vector in ra mảng 
+    và vector
+    13. Sau khi ra khỏi mảng hàm in lại mảng và vector sau đó nhận xét
  */
 #include <iostream>
 #include <vector>
+#include <fstream> // Thư viện để thao tác với file 
+#include <string> // Thư viện để làm việc với chuỗi
 
 using namespace std; 
 
@@ -17,7 +38,9 @@ int main ()
 {
     int arr1[8] = {};
     int arr2[6] = {2, 3, 1, 4, 7, 9};
-    vector<int> arr3 = {1, 6, 9, 5, 4, 3, 8}; 
+    vector<int> arr3 = {1, 6, 9, 5, 4, 3, 8};
+    fstream fs; 
+
     arr2[4] = 5; 
     for (int i = 0; i < 5; i++)
     {
@@ -50,6 +73,16 @@ int main ()
     arr3.erase(arr3.begin() + 4); // Xoá phần tử vị trí thứ 3 (arr3[4])
     arr3.pop_back(); // Xoá phần tử ở cuối mảng
 
+    fs.open ("Array.txt"); 
+    if (fs.is_open())
+    {
+        cout << "Open file successfully!";
+    }
+    else
+    {
+        cout << "Open file failed!"; 
+    }
+
     for (int i = 0; i < 8; i++)
     {
         cout << arr1[i] << " "; 
@@ -67,4 +100,6 @@ int main ()
     cout << endl; 
     cout << arr3.size() << endl; // Xuất ra số phần tử trong mảng arr3
     cout << sizeof(arr3); // Xuất ra kích thước của mảng arr3 tính theo byte
+
+
 }
