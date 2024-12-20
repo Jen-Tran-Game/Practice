@@ -39,7 +39,9 @@ int main ()
     int arr1[8] = {};
     int arr2[6] = {2, 3, 1, 4, 7, 9};
     vector<int> arr3 = {1, 6, 9, 5, 4, 3, 8};
-    fstream fs; 
+    vector<int> arr4; 
+    string filename = "Array.txt";
+    ifstream infile (filename);  
 
     arr2[4] = 5; 
     for (int i = 0; i < 5; i++)
@@ -73,33 +75,52 @@ int main ()
     arr3.erase(arr3.begin() + 4); // Xoá phần tử vị trí thứ 3 (arr3[4])
     arr3.pop_back(); // Xoá phần tử ở cuối mảng
 
-    fs.open ("Array.txt"); 
-    if (fs.is_open())
+    if (!infile.is_open())
     {
-        cout << "Open file successfully!";
+        int n; 
+        cin >> n; 
+        for (int i = 0; i < n; i++)
+        {
+            cin >> arr4[i]; 
+        }
+        ofstream outfile(filename); 
+        for (int i = 0; i < arr4.size(); i++)
+        {
+            outfile << arr4[i] << " "; 
+        }
+        outfile.close(); 
     }
-    else
+    else 
     {
-        cout << "Open file failed!"; 
+        int value; 
+        while (infile >> value)
+        {
+            arr4.push_back(value); 
+        }
     }
+    infile.close(); 
 
-    for (int i = 0; i < 8; i++)
+    // for (int i = 0; i < 8; i++)
+    // {
+    //     cout << arr1[i] << " "; 
+    // }
+    // cout << endl; 
+    // for (int i = 0; i < 6; i++)
+    // {
+    //     cout << arr2[i] << " ";
+    // }
+    // cout << endl; 
+    // for (int i = 0; i < arr3.size(); i++)
+    // {
+    //     cout << arr3[i] << " ";
+    // }
+    // cout << endl; 
+    // cout << arr3.size() << endl; // Xuất ra số phần tử trong mảng arr3
+    // cout << sizeof(arr3); // Xuất ra kích thước của mảng arr3 tính theo byte
+
+    for (int i = 0; i < arr4.size(); i++)
     {
-        cout << arr1[i] << " "; 
+        cout << arr4[i] << " "; 
     }
     cout << endl; 
-    for (int i = 0; i < 6; i++)
-    {
-        cout << arr2[i] << " ";
-    }
-    cout << endl; 
-    for (int i = 0; i < arr3.size(); i++)
-    {
-        cout << arr3[i] << " ";
-    }
-    cout << endl; 
-    cout << arr3.size() << endl; // Xuất ra số phần tử trong mảng arr3
-    cout << sizeof(arr3); // Xuất ra kích thước của mảng arr3 tính theo byte
-
-
 }
