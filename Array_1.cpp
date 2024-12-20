@@ -7,7 +7,7 @@
     4.(done) Mảng trong C++ có cố định không, trường hợp không biết trước có bao nhiêu phần tử 
     thì có các phương pháp nào để mở rộng mảng ?
     5.(done) Lấy được kích thước của mảng arr1 ra L1
-    6. Tạo file txt nhập nội dung mảng từ bàn phím và lưu vào file txt, sau đó load lại chương 
+    6.(done) Tạo file txt nhập nội dung mảng từ bàn phím và lưu vào file txt, sau đó load lại chương 
     trình với điều kiện đọc file nếu có file thì lấy giá trị từ file nếu không có thì nhập lại 
     xong thoát 
     7. Khi chạy chương trình có file và đọc được file thì gán chuỗi số đó vào mảng 1 chiều, kết
@@ -40,8 +40,10 @@ int main ()
     int arr2[6] = {2, 3, 1, 4, 7, 9};
     vector<int> arr3 = {1, 6, 9, 5, 4, 3, 8};
     vector<int> arr4; 
-    string filename = "Array.txt";
-    ifstream infile (filename);  
+    string Text_1;
+    string Text_2; 
+    string Array;
+    int n; 
 
     arr2[4] = 5; 
     for (int i = 0; i < 5; i++)
@@ -75,52 +77,76 @@ int main ()
     arr3.erase(arr3.begin() + 4); // Xoá phần tử vị trí thứ 3 (arr3[4])
     arr3.pop_back(); // Xoá phần tử ở cuối mảng
 
-    if (!infile.is_open())
-    {
-        int n; 
-        cin >> n; 
-        for (int i = 0; i < n; i++)
-        {
-            cin >> arr4[i]; 
-        }
-        ofstream outfile(filename); 
-        for (int i = 0; i < arr4.size(); i++)
-        {
-            outfile << arr4[i] << " "; 
-        }
-        outfile.close(); 
-    }
-    else 
-    {
-        int value; 
-        while (infile >> value)
-        {
-            arr4.push_back(value); 
-        }
-    }
-    infile.close(); 
+    ofstream writeFile_1("Test_1.txt"); 
+    writeFile_1 << "Hello! I'm Jen_Tran"; 
+    writeFile_1.close(); 
 
-    // for (int i = 0; i < 8; i++)
-    // {
-    //     cout << arr1[i] << " "; 
-    // }
-    // cout << endl; 
-    // for (int i = 0; i < 6; i++)
-    // {
-    //     cout << arr2[i] << " ";
-    // }
-    // cout << endl; 
-    // for (int i = 0; i < arr3.size(); i++)
-    // {
-    //     cout << arr3[i] << " ";
-    // }
-    // cout << endl; 
-    // cout << arr3.size() << endl; // Xuất ra số phần tử trong mảng arr3
-    // cout << sizeof(arr3); // Xuất ra kích thước của mảng arr3 tính theo byte
-
-    for (int i = 0; i < arr4.size(); i++)
+    ifstream readFile_1("Test_1.txt"); 
+    while(getline(readFile_1, Text_1))
     {
-        cout << arr4[i] << " "; 
+        cout << Text_1; 
+    }
+    readFile_1.close(); 
+
+    cout << endl;
+
+    fstream writeFile_2("Test_2.txt", fstream::out); // out bao gồm luôn cả trunc
+    writeFile_2 << "Hi! I'm Jen._.Tran"; 
+    writeFile_2.close(); 
+
+    fstream readFile_2("Test_2.txt", fstream::in); 
+    getline(readFile_2, Text_2); 
+    cout << Text_2; 
+    readFile_2.close(); 
+
+    cout << endl; 
+    
+    // Nhập số lượng phần tử và giá trị của mảng từ bàn phím, sau đó ghi vào file
+    cin >> n; 
+    int value; 
+    fstream writeFile_array("Array.txt", fstream::out); 
+    for (int i = 0; i < n; i++)
+    {
+        cin >> value;
+        writeFile_array << value << " "; 
+    }
+    writeFile_array.close();
+
+    // Đọc giá trị từ file và lưu vào arr4
+    fstream readFile_array("Array.txt", fstream::in);
+    while (readFile_array >> value)
+    {
+        arr4.push_back(value); 
+    }
+    readFile_array.close(); 
+
+    // Xuất giá trị của vector arr1
+    for (int i = 0; i < 8; i++)
+    {
+        cout << "arr1 = " << arr1[i] << " "; 
     }
     cout << endl; 
+
+    // Xuất giá trị của vector arr2
+    for (int i = 0; i < 6; i++)
+    {
+        cout << "arr2 = " << arr2[i] << " ";
+    }
+    cout << endl; 
+    
+    // Xuất giá trị của vector arr3
+    for (int i = 0; i < arr3.size(); i++)
+    {
+        cout << "arr3 = " << arr3[i] << " ";
+    }
+    cout << endl; 
+    cout << "Size of arr3: " << arr3.size() << endl; // Xuất ra số phần tử trong mảng arr3
+    cout << "Sizeof of arr3: " << sizeof(arr3) << endl; // Xuất ra kích thước của mảng arr3 tính theo byte
+
+    // Xuất giá trị của vector arr4
+    for (int i = 0; i < arr4.size(); i++)
+    {
+        cout << "arr4 = " << arr4[i] << " ";
+    }
+
 }
