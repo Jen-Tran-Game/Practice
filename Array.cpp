@@ -15,8 +15,10 @@ int main ()
     vector<int> arr4; 
     string Text_1;
     string Text_2; 
-    string Array;
-    int n, value, m, d; 
+    int n, value; 
+    int m, position_6; 
+    int a; 
+    int b; 
 
     // Xuất giá trị của mảng arr1
     cout << "arr1 = ";
@@ -193,6 +195,34 @@ int main ()
     }
     cout << endl << "----------------------------------" << endl; 
 
+    // Nhập số phần tử và giá trị cho mảng arr7
+    cout << "Enter the number of elements of arr7: "; 
+    cin >> a; 
+    cout << "Enter value of arr7: "; 
+    for (int i = 0; i < a; i++)
+    {
+        cin >> arr7[i]; 
+    }
+
+    // Xuất giá trị của mảng arr7
+    cout << "arr7 = "; 
+    for (int i = 0; i < a; i++)
+    {
+        cout << arr7[i] << " "
+    }
+    cout << endl << "----------------------------------" << endl; 
+
+    // Nhập mảng chứa các vị trí cần xoá trong mảng arr7
+    int position_7[b]; 
+    cout << "Enter number of position you want to delete: "; 
+    cin >> b; 
+    cout << "Enter array of position of arr7 you want to delete: ";
+    for (int i = 0; i < b; i++)
+    {
+        cin >> position_7[i];
+    }
+
+    
 
 
 
