@@ -10,9 +10,9 @@
     trình với điều kiện đọc file nếu có file thì lấy giá trị từ file nếu không có thì nhập lại 
     xong thoát 
     7.(done) Khi chạy chương trình có file và đọc được file thì gán chuỗi số đó vào mảng 1 chiều (arr4)
-    8. Kết hợp với mảng 1 chiều trước đó tạo thành vector 2 chiều (arr4 và arr2 tạo thành mảng arr5)
+    8.(done) Kết hợp với mảng 1 chiều trước đó tạo thành vector 2 chiều (arr4 và arr2 tạo thành mảng arr5)
     9.(done) Tạo mảng nhập số phần tử và giá trị của mảng (arr6)
-    10. Xoá một phần tử của mảng arr5 sau đó in ra màn hình mảng sau khi xoá 
+    10.(done) Xoá một phần tử của mảng arr5 sau đó in ra màn hình mảng sau khi xoá 
     11. Tạo mảng nhập số phần tử và giá trị của mảng (arr7)
     12. Xoá nhiều phần tử của mảng arr6 sau đó in ra màn hình mảng sau khi xoá  
     13. Tạo 1 mảng hoặc vector kích thước 12 phần tử nhập vào số điện thoại **********, xét ký tự
