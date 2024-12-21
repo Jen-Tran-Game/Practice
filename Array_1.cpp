@@ -1,32 +1,3 @@
-/* Đề bài: 
-    1.(done) Tạo một mảng rỗng arr1 kích thước 8, 
-    một mảng arr2 với 6 phần tử {2, 3, 1, 4, 7, 9}
-    2.(done) Thay đổi giá trị phần tử thứ 5 của mảng arr2 từ 7 thành 5
-    3.(done) Sắp xếp arr2 the thứ tự tăng dần và gán vào arr1 từ dưới lên
-    VD: output arr1 = {0, 0, 1, 2, 3, 4, 5, 9}
-    4.(done) Mảng trong C++ có cố định không, trường hợp không biết trước có bao nhiêu phần tử 
-    thì có các phương pháp nào để mở rộng mảng ?
-    5.(done) Lấy được kích thước của mảng arr1 ra L1
-    6.(done) Tạo file txt nhập nội dung mảng từ bàn phím và lưu vào file txt, sau đó load lại chương 
-    trình với điều kiện đọc file nếu có file thì lấy giá trị từ file nếu không có thì nhập lại 
-    xong thoát 
-    7. Khi chạy chương trình có file và đọc được file thì gán chuỗi số đó vào mảng 1 chiều, kết
-    hợp với mảng 1 chiều trước đó tạo thành vector 2 chiều 
-    8. Tạo 1 mảng hoặc vector kích thước 12 phần tử nhập vào số điện thoại **********, xét ký tự
-    đầu nếu là 0 thì +1 (đầu số Mỹ) nếu là 1 thì đầu số Việt Nam +84 sau đó chuyển mảng thành 
-    chuỗi số điện thoại bắt đầu từ phần tử 2 đồng thời thay 0 thành +84 hoặc +1. Sau đó lưu vào
-    file sdt.txt
-    9. Sau khi tạo file thành công thì tách nhữn đoạn code đó ra thành các hàm xử lý 
-    VD: -Hàm nhập phần tử
-        -Hàm kiểm tra phần tử đầu
-        -Hàm chuyển mảng thành string và replace ký tự đầu thành +84 hoặc +1 sử dụng switch case
-        -Hàm lưu và đọc file 
-    10. Sau đó tạo 1 mảng và 1 vector
-    11. Tạo chương trình con với 2 tham số là mảng và vector 
-    12. bển trong thay đổi giá trị phần tử mảng truyền vào, thay đổi giá trị vector in ra mảng 
-    và vector
-    13. Sau khi ra khỏi mảng hàm in lại mảng và vector sau đó nhận xét
- */
 #include <iostream>
 #include <vector>
 #include <fstream> // Thư viện để thao tác với file 
@@ -43,8 +14,8 @@ int main ()
     string Text_1;
     string Text_2; 
     string Array;
-    int n; 
-
+    int n, value, m, d; 
+    
     arr2[4] = 5; 
     for (int i = 0; i < 5; i++)
     {
@@ -81,6 +52,7 @@ int main ()
     writeFile_1 << "Hello! I'm Jen_Tran"; 
     writeFile_1.close(); 
 
+    cout << "Content of Test_1.txt: ";
     ifstream readFile_1("Test_1.txt"); 
     while(getline(readFile_1, Text_1))
     {
@@ -94,6 +66,7 @@ int main ()
     writeFile_2 << "Hi! I'm Jen._.Tran"; 
     writeFile_2.close(); 
 
+    cout << "Content of Test_2.txt: ";
     fstream readFile_2("Test_2.txt", fstream::in); 
     getline(readFile_2, Text_2); 
     cout << Text_2; 
@@ -102,8 +75,9 @@ int main ()
     cout << endl; 
     
     // Nhập số lượng phần tử và giá trị của mảng từ bàn phím, sau đó ghi vào file
+    cout << "Enter the number of elements for the arr4: ";
     cin >> n; 
-    int value; 
+    cout << "Enter the value of the arr4: ";
     fstream writeFile_array("Array.txt", fstream::out); 
     for (int i = 0; i < n; i++)
     {
@@ -120,33 +94,57 @@ int main ()
     }
     readFile_array.close(); 
 
-    // Xuất giá trị của vector arr1
+    // Nhập số phần tử và giá trị mảng cho arr5
+    cout << "Enter the number of elements of arr5: ";
+    cin >> m; 
+    int arr5[m];
+    cout << "Enter the value of arr5: ";
+    for (int i = 0; i < m; i++)
+    {
+        cin >> arr5[i] ; 
+    }
+
+    cout << "----------------------------------" << endl; 
+    // Xuất giá trị của mảng arr1
+    cout << "arr1 = ";
     for (int i = 0; i < 8; i++)
     {
-        cout << "arr1 = " << arr1[i] << " "; 
+        cout << arr1[i] << " "; 
     }
     cout << endl; 
 
-    // Xuất giá trị của vector arr2
+    // Xuất giá trị của mảng arr2
+    cout << "arr2 = ";
     for (int i = 0; i < 6; i++)
     {
-        cout << "arr2 = " << arr2[i] << " ";
+        cout << arr2[i] << " ";
     }
     cout << endl; 
     
     // Xuất giá trị của vector arr3
+    cout << "arr3 = ";
     for (int i = 0; i < arr3.size(); i++)
     {
-        cout << "arr3 = " << arr3[i] << " ";
+        cout << arr3[i] << " ";
     }
     cout << endl; 
     cout << "Size of arr3: " << arr3.size() << endl; // Xuất ra số phần tử trong mảng arr3
     cout << "Sizeof of arr3: " << sizeof(arr3) << endl; // Xuất ra kích thước của mảng arr3 tính theo byte
 
     // Xuất giá trị của vector arr4
+    cout << "arr4 = ";
     for (int i = 0; i < arr4.size(); i++)
     {
-        cout << "arr4 = " << arr4[i] << " ";
+        cout << arr4[i] << " ";
     }
+    cout << endl; 
+
+    // Xuất giá trị của mảng arr5
+    cout << "arr5 = "; 
+    for (int i = 0; i < m; i++)
+    {
+        cout << arr5[i] << " "; 
+    }
+
 
 }
