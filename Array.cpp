@@ -94,14 +94,14 @@ int main ()
     }
     readFile_array.close(); 
 
-    // Nhập số phần tử và giá trị mảng cho arr5
+    // Nhập số phần tử và giá trị mảng cho arr6
     cout << "Enter the number of elements of arr5: ";
     cin >> m; 
-    int arr5[m];
+    int arr6[m];
     cout << "Enter the value of arr5: ";
     for (int i = 0; i < m; i++)
     {
-        cin >> arr5[i] ; 
+        cin >> arr6[i] ; 
     }
 
     cout << "----------------------------------" << endl; 
@@ -139,8 +139,8 @@ int main ()
     }
     cout << endl; 
 
-    // Xuất giá trị của mảng arr5
-    cout << "arr5 = "; 
+    // Xuất giá trị của mảng arr6
+    cout << "arr6 = "; 
     for (int i = 0; i < m; i++)
     {
         cout << arr5[i] << " "; 
