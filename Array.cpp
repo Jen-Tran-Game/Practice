@@ -48,31 +48,15 @@ int main ()
     arr3.erase(arr3.begin() + 4); // Xoá phần tử vị trí thứ 3 (arr3[4])
     arr3.pop_back(); // Xoá phần tử ở cuối mảng
 
+    // Nhập nội dung vào file Test_1.txt
     ofstream writeFile_1("Test_1.txt"); 
     writeFile_1 << "Hello! I'm Jen_Tran"; 
     writeFile_1.close(); 
 
-    cout << "Content of Test_1.txt: ";
-    ifstream readFile_1("Test_1.txt"); 
-    while(getline(readFile_1, Text_1))
-    {
-        cout << Text_1; 
-    }
-    readFile_1.close(); 
-
-    cout << endl;
-
+    // Nhập nội dung vào file Test_2.txt
     fstream writeFile_2("Test_2.txt", fstream::out); // out bao gồm luôn cả trunc
     writeFile_2 << "Hi! I'm Jen._.Tran"; 
     writeFile_2.close(); 
-
-    cout << "Content of Test_2.txt: ";
-    fstream readFile_2("Test_2.txt", fstream::in); 
-    getline(readFile_2, Text_2); 
-    cout << Text_2; 
-    readFile_2.close(); 
-
-    cout << endl; 
     
     // Nhập số lượng phần tử và giá trị của mảng từ bàn phím, sau đó ghi vào file
     cout << "Enter the number of elements for the arr4: ";
@@ -105,6 +89,24 @@ int main ()
     }
 
     cout << "----------------------------------" << endl; 
+    // Xuất ra nội dung trong file Test_1.txt
+    cout << "Content of Test_1.txt: ";
+    ifstream readFile_1("Test_1.txt"); 
+    while(getline(readFile_1, Text_1))
+    {
+        cout << Text_1; 
+    }
+    readFile_1.close(); 
+    cout << endl;
+
+    // Xuất ra nội dung trong file Test_2.txt    
+    cout << "Content of Test_2.txt: ";
+    fstream readFile_2("Test_2.txt", fstream::in); 
+    getline(readFile_2, Text_2); 
+    cout << Text_2; 
+    readFile_2.close();
+    cout << endl; 
+
     // Xuất giá trị của mảng arr1
     cout << "arr1 = ";
     for (int i = 0; i < 8; i++)
