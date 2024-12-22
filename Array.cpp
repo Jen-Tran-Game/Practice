@@ -211,11 +211,12 @@ int main ()
     {
         cout << arr7[i] << " ";
     }
-
+    cout << endl; 
+    
     // Nhập mảng chứa các vị trí cần xoá trong mảng arr7
-    int positions_7[b]; 
     cout << "Enter number of position you want to delete: "; 
     cin >> b; 
+    int positions_7[b]; 
     cout << "Enter array of position of arr7 you want to delete: ";
     for (int i = 0; i < b; i++)
     {
@@ -229,9 +230,9 @@ int main ()
         int pos_7 = positions_7[i] - i;
 
         // Di chuyển các phần tử để lấp khoảng trống
-        for (int i = 0; i < a; i++)
+        for (int j = pos_7; j < a - 1; j++)
         {
-            arr7[i] = arr7[i + 1]; 
+            arr7[j] = arr7[j + 1]; 
         }
 
         a--; 

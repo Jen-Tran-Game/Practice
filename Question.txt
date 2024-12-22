@@ -27,7 +27,7 @@
 
     11.(done) Tạo mảng nhập số phần tử và giá trị của mảng (arr7)
 
-    12. Xoá nhiều phần tử của mảng arr7 sau đó in ra màn hình 
+    12.(done) Xoá nhiều phần tử của mảng arr7 sau đó in ra màn hình 
     mảng sau khi xoá (mảng các vị trí cần xoá theo thứ tự tăng dần) 
 
     13. Tạo mảng nhập số phần tử và giá trị của mảng (arr8)
