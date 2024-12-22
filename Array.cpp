@@ -2,7 +2,7 @@
 #include <vector>
 #include <fstream> // Thư viện để thao tác với file 
 #include <string> // Thư viện để làm việc với chuỗi
-#include <iomanip>
+#include <iomanip> // Thư viện của setw để căn thẳng hàng 
 
 using namespace std; 
 
@@ -16,11 +16,11 @@ int main ()
     string Text_1;
     string Text_2; 
     int n, value; 
-    int m, position_6; 
+    int m, positions_6; 
     int a; 
     int b; 
 
-    // Xuất giá trị của mảng arr1
+    // In giá trị của mảng arr1
     cout << "arr1 = ";
     for (int i = 0; i < 8; i++)
     {
@@ -53,7 +53,7 @@ int main ()
         arr1[i] = arr2[i - 2]; 
     }
 
-    // Xuất giá trị của mảng arr2
+    // In giá trị của mảng arr2
     cout << "arr2 = ";
     for (int i = 0; i < 6; i++)
     {
@@ -68,15 +68,15 @@ int main ()
     arr3.erase(arr3.begin() + 4); // Xoá phần tử vị trí thứ 3 (arr3[4])
     arr3.pop_back(); // Xoá phần tử ở cuối mảng
 
-    // Xuất giá trị của vector arr3
+    // In giá trị của vector arr3
     cout << "arr3 = ";
     for (int i = 0; i < arr3.size(); i++)
     {
         cout << arr3[i] << " ";
     }
     cout << endl; 
-    cout << "Size of arr3: " << arr3.size() << endl; // Xuất ra số phần tử trong mảng arr3
-    cout << "Sizeof of arr3: " << sizeof(arr3) << endl; // Xuất ra kích thước của mảng arr3 tính theo byte
+    cout << "Size of arr3: " << arr3.size() << endl; // In ra số phần tử trong mảng arr3
+    cout << "Sizeof of arr3: " << sizeof(arr3) << endl; // In ra kích thước của mảng arr3 tính theo byte
     cout << "----------------------------------" << endl; 
 
     // Nhập nội dung vào file Test_1.txt
@@ -84,7 +84,7 @@ int main ()
     writeFile_1 << "Hello! I'm Jen_Tran"; 
     writeFile_1.close(); 
 
-    // Xuất ra nội dung trong file Test_1.txt
+    // In ra nội dung trong file Test_1.txt
     cout << "Content of Test_1.txt: ";
     ifstream readFile_1("Test_1.txt"); 
     while(getline(readFile_1, Text_1))
@@ -99,7 +99,7 @@ int main ()
     writeFile_2 << "Hi! I'm Jen._.Tran"; 
     writeFile_2.close(); 
 
-    // Xuất ra nội dung trong file Test_2.txt    
+    // In ra nội dung trong file Test_2.txt    
     cout << "Content of Test_2.txt: ";
     fstream readFile_2("Test_2.txt", fstream::in); 
     getline(readFile_2, Text_2); 
@@ -127,7 +127,7 @@ int main ()
     }
     readFile_array.close(); 
 
-    // Xuất giá trị của vector arr4
+    // In giá trị của vector arr4
     cout << "arr4 = ";
     for (int i = 0; i < arr4.size(); i++)
     {
@@ -147,7 +147,7 @@ int main ()
         arr5[1][i] = arr4[i];
     }
 
-    // Xuất giá trị của mảng arr5
+    // In giá trị của mảng arr5
     cout << "arr5 = ";
     cout << endl;  
     for (int i = 0; i < 2; i++)
@@ -170,7 +170,7 @@ int main ()
         cin >> arr6[i] ; 
     }
 
-    // Xuất giá trị của mảng arr6
+    // In giá trị của mảng arr6
     cout << "arr6 = "; 
     for (int i = 0; i < m; i++)
     {
@@ -180,15 +180,15 @@ int main ()
 
     // Xoá một phần tử trong arr6
     cout << "Enter the position you want to delete in arr6: "; 
-    cin >> d; 
-    for (int i = d; i < m - 1; i++)
+    cin >> positions_6; 
+    for (int i = positions_6; i < m - 1; i++)
     {
         arr6[i] = arr6[i + 1]; 
     }
     m--; 
 
-    // Xuất giá trị của mảng arr6 sau khi xoá 1 phần tử 
-    cout << "arr6 = "; 
+    // In giá trị của mảng arr6 sau khi xoá 1 phần tử 
+    cout << "arr6_after_delete_element = "; 
     for (int i = 0; i < m; i++)
     {
         cout << arr6[i] << " ";
@@ -198,45 +198,50 @@ int main ()
     // Nhập số phần tử và giá trị cho mảng arr7
     cout << "Enter the number of elements of arr7: "; 
     cin >> a; 
+    int arr7[a];
     cout << "Enter value of arr7: "; 
     for (int i = 0; i < a; i++)
     {
         cin >> arr7[i]; 
     }
 
-    // Xuất giá trị của mảng arr7
+    // In giá trị của mảng arr7
     cout << "arr7 = "; 
     for (int i = 0; i < a; i++)
     {
-        cout << arr7[i] << " "
+        cout << arr7[i] << " ";
     }
-    cout << endl << "----------------------------------" << endl; 
 
     // Nhập mảng chứa các vị trí cần xoá trong mảng arr7
-    int position_7[b]; 
+    int positions_7[b]; 
     cout << "Enter number of position you want to delete: "; 
     cin >> b; 
     cout << "Enter array of position of arr7 you want to delete: ";
     for (int i = 0; i < b; i++)
     {
-        cin >> position_7[i];
+        cin >> positions_7[i];
     }
 
-    
+    // Xoá từng phần tử 
+    int numPosition_7 = sizeof(positions_7) / sizeof(positions_7[0]); // Số phần tử trong mảng positions_7
+    for (int i = 0; i < numPosition_7; i++)
+    {
+        int pos_7 = positions_7[i] - i;
 
+        // Di chuyển các phần tử để lấp khoảng trống
+        for (int i = 0; i < a; i++)
+        {
+            arr7[i] = arr7[i + 1]; 
+        }
 
+        a--; 
+    }
 
-
-
-
-    
-
-
-
-
-
-
-
-
+    // In ra màn hình mảng arr7 sau khi đã xoá các phần tử
+    cout << "arr7_after_delete_elements = "; 
+    for (int i = 0; i < a; i++)
+    {
+        cout << arr7[i] << " ";
+    }
 
 }
