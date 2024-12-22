@@ -3,7 +3,7 @@
 
     2.(done) Thay đổi giá trị phần tử thứ 5 của mảng arr2 từ 7 thành 5
 
-    3.(done) Sắp xếp arr2 the thứ tự tăng dần và gán vào arr1 từ dưới lên
+    3.(done) Sắp xếp arr2 theo thứ tự tăng dần và gán vào arr1 từ dưới lên
     VD: output arr1 = {0, 0, 1, 2, 3, 4, 5, 9}
 
     4.(done) Mảng trong C++ có cố định không, trường hợp không biết trước có bao nhiêu 
@@ -30,9 +30,9 @@
     12.(done) Xoá nhiều phần tử của mảng arr7 sau đó in ra màn hình 
     mảng sau khi xoá (mảng các vị trí cần xoá theo thứ tự tăng dần) 
 
-    13. Tạo mảng nhập số phần tử và giá trị của mảng (arr8)
+    13.(done) Tạo mảng nhập số phần tử và giá trị của mảng (arr8)
 
-    14. Xoá nhiều phần tử của mảng arr6 sau đó in ra màn hình 
+    14.(done) Xoá nhiều phần tử của mảng arr8 sau đó in ra màn hình 
     mảng sau khi xoá (mảng các vị trí theo thứ tự bất kì) 
 
     15. Tạo mảng nhập số phần tử và giá trị của mảng (arr9)
@@ -45,7 +45,7 @@
     sau đó chuyển mảng thành chuỗi số điện thoại bắt đầu từ phần tử 2 
     đồng thời thay 0 thành +84 hoặc +1. Sau đó lưu vào file sdt.txt
 
-    18. Sau khi tạo file thành công thì tách nhữn đoạn code đó ra thành các hàm xử lý 
+    18. Sau khi tạo file thành công thì tách những đoạn code đó ra thành các hàm xử lý 
     VD: -Hàm nhập phần tử
         -Hàm kiểm tra phần tử đầu
         -Hàm chuyển mảng thành string và replace ký tự đầu thành +84 hoặc +1 

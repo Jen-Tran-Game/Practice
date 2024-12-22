@@ -16,17 +16,12 @@ int main ()
     string Text_1;
     string Text_2; 
     int n, value; 
-    int m, positions_6; 
-    int a; 
-    int b; 
+    int m, position_6; 
+    int a, b; 
+    int c, d; 
 
     // In giá trị của mảng arr1
-    cout << "arr1 = ";
-    for (int i = 0; i < 8; i++)
-    {
-        cout << arr1[i] << " "; 
-    }
-    cout << endl << "----------------------------------" << endl; 
+     
     
     arr2[4] = 5; 
     for (int i = 0; i < 5; i++)
@@ -52,6 +47,13 @@ int main ()
     {
         arr1[i] = arr2[i - 2]; 
     }
+    
+    cout << "arr1 = ";
+    for (int i = 0; i < 8; i++)
+    {
+        cout << arr1[i] << " "; 
+    }
+    cout << endl << "----------------------------------" << endl;
 
     // In giá trị của mảng arr2
     cout << "arr2 = ";
@@ -170,25 +172,17 @@ int main ()
         cin >> arr6[i] ; 
     }
 
-    // In giá trị của mảng arr6
-    cout << "arr6 = "; 
-    for (int i = 0; i < m; i++)
-    {
-        cout << arr6[i] << " "; 
-    }
-    cout << endl; 
-
     // Xoá một phần tử trong arr6
     cout << "Enter the position you want to delete in arr6: "; 
-    cin >> positions_6; 
-    for (int i = positions_6; i < m - 1; i++)
+    cin >> position_6; 
+    for (int i = position_6; i < m - 1; i++)
     {
         arr6[i] = arr6[i + 1]; 
     }
     m--; 
 
     // In giá trị của mảng arr6 sau khi xoá 1 phần tử 
-    cout << "arr6_after_delete_element = "; 
+    cout << "arr6 = "; 
     for (int i = 0; i < m; i++)
     {
         cout << arr6[i] << " ";
@@ -203,16 +197,8 @@ int main ()
     for (int i = 0; i < a; i++)
     {
         cin >> arr7[i]; 
-    }
+    } 
 
-    // In giá trị của mảng arr7
-    cout << "arr7 = "; 
-    for (int i = 0; i < a; i++)
-    {
-        cout << arr7[i] << " ";
-    }
-    cout << endl; 
-    
     // Nhập mảng chứa các vị trí cần xoá trong mảng arr7
     cout << "Enter number of position you want to delete: "; 
     cin >> b; 
@@ -223,7 +209,7 @@ int main ()
         cin >> positions_7[i];
     }
 
-    // Xoá từng phần tử 
+    // Xoá từng phần tử trong mảng arr7
     int numPosition_7 = sizeof(positions_7) / sizeof(positions_7[0]); // Số phần tử trong mảng positions_7
     for (int i = 0; i < numPosition_7; i++)
     {
@@ -234,15 +220,84 @@ int main ()
         {
             arr7[j] = arr7[j + 1]; 
         }
-
         a--; 
     }
 
     // In ra màn hình mảng arr7 sau khi đã xoá các phần tử
-    cout << "arr7_after_delete_elements = "; 
+    cout << "arr7 = "; 
     for (int i = 0; i < a; i++)
     {
         cout << arr7[i] << " ";
     }
+    cout << endl << "----------------------------------" << endl; 
+
+    // Nhập số phần tử và giá trị cho mảng arr8
+    cout << "Enter the number of elements of arr8: "; 
+    cin >> c; 
+    int arr8[c]; 
+    cout << "Enter the value of arr8: "; 
+    for (int i = 0; i < c; i++)
+    {
+        cin >> arr8[i]; 
+    }
+
+    // Nhập mảng chứa các vị trí cần xoá trong mảng arr8
+    cout << "Enter number of position you want to delete: "; 
+    cin >> d; 
+    int positions_8[d]; 
+    cout << "Enter array of position of arr8 you want to delete: ";
+    for (int i = 0; i < d; i++)
+    {
+        cin >> positions_8[i];
+    }
+
+    // Sắp xếp mảng chứa các vị trí cần xoá trong mảng arr8 theo thứ tự tăng dần
+    for (int i = 0; i < d - 1; i++)
+    {
+        int temp = 0; 
+        int position = i; 
+        int min = positions_8[i];
+        for (int j = i + 1; j < d; j++)
+        {
+            int temp = 0; 
+            if (positions_8[j] < min)
+            {
+                position = j; 
+                min = positions_8[j]; 
+            }
+
+        }
+        temp = positions_8[i]; 
+        positions_8[i] = positions_8[position]; 
+        positions_8[position] = temp; 
+    }
+
+    // In ra mảng chứa các vị trí cần xoá trong mảng arr8 theo thứ tự tăng dần
+    cout << "positions_8 = "; 
+    for (int i = 0; i < d; i++)
+    {
+        cout << positions_8[i] << " ";
+    }
+
+    // Xoá từng phần tử trong mảng arr8
+    int numPosition_8 = sizeof(positions_8) / sizeof(positions_8[0]); 
+    for (int i = 0; i < numPosition_8; i++)
+    {
+        int pos_8 = positions_8[i] - i; 
+        for (int j = pos_8; j < c - 1; j++)
+        {
+            arr8[j] = arr8[j + 1]; 
+        }
+        c--;
+    }
+    cout << endl; 
+    
+    // In ra mảng arr8 sau khi xoá các phần tử
+    cout << "arr8 = "; 
+    for (int i = 0; i < c; i++)
+    {
+        cout << arr8[i] << " ";
+    }
+    cout << endl << "----------------------------------" << endl; 
 
 }
