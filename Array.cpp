@@ -10,19 +10,7 @@ int main ()
 {
     int arr1[8] = {};
     int arr2[6] = {2, 3, 1, 4, 7, 9};
-    int arr5[2][6];
-    vector<int> arr3 = {1, 6, 9, 5, 4, 3, 8};
-    vector<int> arr4; 
-    string Text_1;
-    string Text_2; 
-    int n, value; 
-    int m, position_6; 
-    int a, b; 
-    int c, d; 
-
-    // In giá trị của mảng arr1
-     
-    
+   
     arr2[4] = 5; 
     for (int i = 0; i < 5; i++)
     {
@@ -47,7 +35,8 @@ int main ()
     {
         arr1[i] = arr2[i - 2]; 
     }
-    
+
+    // In giá trị của mảng arr1
     cout << "arr1 = ";
     for (int i = 0; i < 8; i++)
     {
@@ -63,6 +52,7 @@ int main ()
     }
     cout << endl << "----------------------------------" << endl;  
 
+    vector<int> arr3 = {1, 6, 9, 5, 4, 3, 8};
     arr3.resize(10); // Thay đổi kích thước của mảng arr3 thành 10 phần tử, chỗ nào không có mặc định là 0
     arr3.push_back(4); // Thêm 1 phần tử vào cuối mảng arr3
     arr3.push_back(2); // Thêm 1 phần tử vào cuối mảng arr3
@@ -87,6 +77,7 @@ int main ()
     writeFile_1.close(); 
 
     // In ra nội dung trong file Test_1.txt
+    string Text_1;
     cout << "Content of Test_1.txt: ";
     ifstream readFile_1("Test_1.txt"); 
     while(getline(readFile_1, Text_1))
@@ -101,7 +92,8 @@ int main ()
     writeFile_2 << "Hi! I'm Jen._.Tran"; 
     writeFile_2.close(); 
 
-    // In ra nội dung trong file Test_2.txt    
+    // In ra nội dung trong file Test_2.txt   
+    string Text_2; 
     cout << "Content of Test_2.txt: ";
     fstream readFile_2("Test_2.txt", fstream::in); 
     getline(readFile_2, Text_2); 
@@ -110,6 +102,8 @@ int main ()
     cout << endl << "----------------------------------" << endl; 
     
     // Nhập số lượng phần tử và giá trị của mảng từ bàn phím, sau đó ghi vào file
+    vector<int> arr4; 
+    int n, value; 
     cout << "Enter the number of elements for the arr4: ";
     cin >> n; 
     cout << "Enter the value of the arr4: ";
@@ -138,6 +132,7 @@ int main ()
     cout << endl << "----------------------------------" << endl; 
 
     // Gán mảng arr2 làm dòng đầu tiên cho mảng arr5
+    int arr5[2][6];
     for (int i = 0; i < 6; i++)
     {
         arr5[0][i] = arr2[i]; 
@@ -163,6 +158,7 @@ int main ()
     cout << "----------------------------------" << endl; 
 
     // Nhập số phần tử và giá trị mảng cho arr6
+    int m, position_6; 
     cout << "Enter the number of elements of arr6: ";
     cin >> m; 
     int arr6[m];
@@ -172,7 +168,7 @@ int main ()
         cin >> arr6[i] ; 
     }
 
-    // Xoá một phần tử trong arr6
+    // Xoá một phần tử trong arr6   
     cout << "Enter the position you want to delete in arr6: "; 
     cin >> position_6; 
     for (int i = position_6; i < m - 1; i++)
@@ -190,6 +186,7 @@ int main ()
     cout << endl << "----------------------------------" << endl; 
 
     // Nhập số phần tử và giá trị cho mảng arr7
+    int a; 
     cout << "Enter the number of elements of arr7: "; 
     cin >> a; 
     int arr7[a];
@@ -200,6 +197,7 @@ int main ()
     } 
 
     // Nhập mảng chứa các vị trí cần xoá trong mảng arr7
+    int b; 
     cout << "Enter number of position you want to delete: "; 
     cin >> b; 
     int positions_7[b]; 
@@ -232,6 +230,7 @@ int main ()
     cout << endl << "----------------------------------" << endl; 
 
     // Nhập số phần tử và giá trị cho mảng arr8
+    int c;
     cout << "Enter the number of elements of arr8: "; 
     cin >> c; 
     int arr8[c]; 
@@ -242,6 +241,7 @@ int main ()
     }
 
     // Nhập mảng chứa các vị trí cần xoá trong mảng arr8
+    int d; 
     cout << "Enter number of position you want to delete: "; 
     cin >> d; 
     int positions_8[d]; 
@@ -300,4 +300,20 @@ int main ()
     }
     cout << endl << "----------------------------------" << endl; 
 
+    // Nhập số phần tử và giá trị cho mảng arr9
+    int e; 
+    cout << "Enter the number of elements of arr9: "; 
+    cin >> e; 
+    int arr9[e]; 
+    cout << "Enter the value of arr9: "; 
+    for (int i = 0; i < e; i++)
+    {
+        cin >> arr9[i]; 
+    } 
+
+    cout << "arr9 = "; 
+    for (int i = 0; i < e; i++)
+    {
+        cout << arr9 << " ";
+    }
 }
