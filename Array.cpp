@@ -301,7 +301,7 @@ int main ()
     cout << endl << "----------------------------------" << endl; 
 
     // Nhập số phần tử và giá trị cho mảng arr9
-    int e; 
+    int e;
     cout << "Enter the number of elements of arr9: "; 
     cin >> e; 
     int arr9[e]; 
@@ -311,9 +311,44 @@ int main ()
         cin >> arr9[i]; 
     } 
 
-    cout << "arr9 = "; 
-    for (int i = 0; i < e; i++)
+    // Chèn số 0 vào phía sau khi 2 mảng không bằng nhau 
+    int length_2 = sizeof(arr2) / sizeof(arr2[0]); 
+    int length_9 = sizeof(arr9) / sizeof(arr9[0]); 
+    int max_length = length_2 > length_9 ? length_2 : length_9; 
+    int arr10[2][max_length]; 
+    for (int i = 0; i < max_length; i++)
     {
-        cout << arr9 << " ";
+        if (i < length_2)
+        {
+            arr10[0][i] = arr2[i];
+        }
+        else 
+        {
+            arr10[0][i] = 0; 
+        }
     }
+
+    for (int i = 0; i < max_length; i++)
+    {
+        if (i < length_9)
+        {
+            arr10[1][i] = arr9[i];
+        }
+        else
+        {
+            arr10[1][i] = 0; 
+        }
+    }
+
+    // In ra màn hình mảng arr10
+    cout << "arr10 = " << endl; 
+    for (int i = 0; i < 2; i++)
+    {
+        for (int j = 0; j < max_length; j++)
+        {
+            cout << setw(4) << arr10[i][j] << " "; 
+        }
+        cout << endl; 
+    }
+    cout <<  "----------------------------------" << endl; 
 }
