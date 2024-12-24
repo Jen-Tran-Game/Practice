@@ -40,7 +40,7 @@
     16.(done) Kết hợp với mảng 1 chiều trước đó tạo thành vector 2 chiều 
     không cùng chiều dài (arr9 và arr2 tạo thành mảng arr10) (chèn số 0 vào phía sau)
 
-    17. Kết hợp với mảng 1 chiều trước đó tạo thành vector 2 chiều 
+    17.(done) Kết hợp với mảng 1 chiều trước đó tạo thành vector 2 chiều 
     không cùng chiều dài (arr9 và arr2 tạo thành mảng arr11) (chèn số 0 vào phía trước)
 
     18. Tạo 1 mảng hoặc vector kích thước 12 phần tử nhập vào số điện thoại **********, 
