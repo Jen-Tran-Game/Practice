@@ -10,8 +10,10 @@ int main ()
 {
     int arr1[8] = {};
     int arr2[6] = {2, 3, 1, 4, 7, 9};
-   
+
     arr2[4] = 5; 
+
+
     for (int i = 0; i < 5; i++)
     {
         int temp = 0; 
@@ -315,8 +317,8 @@ int main ()
     int length_2 = sizeof(arr2) / sizeof(arr2[0]); 
     int length_9 = sizeof(arr9) / sizeof(arr9[0]); 
     int max_length_10 = length_2 > length_9 ? length_2 : length_9; 
-    int arr10[2][max_length]; 
-    for (int i = 0; i < max_length; i++)
+    int arr10[2][max_length_10]; 
+    for (int i = 0; i < max_length_10; i++)
     {
         if (i < length_2)
         {
@@ -328,7 +330,7 @@ int main ()
         }
     }
 
-    for (int i = 0; i < max_length; i++)
+    for (int i = 0; i < max_length_10; i++)
     {
         if (i < length_9)
         {
@@ -344,7 +346,7 @@ int main ()
     cout << "arr10 = " << endl; 
     for (int i = 0; i < 2; i++)
     {
-        for (int j = 0; j < max_length; j++)
+        for (int j = 0; j < max_length_10; j++)
         {
             cout << setw(4) << arr10[i][j] << " "; 
         }
@@ -358,13 +360,13 @@ int main ()
     cin >> f; 
 
     int max_length_14 = f > 6 ? f : 6; 
-    int arr11[max_length] = {}; // Tạo ra một mảng rỗng
-    int arr12[max_length] = {}; // Tạo ra một mảng rỗng
+    int arr11[max_length_14] = {}; // Tạo ra một mảng rỗng
+    int arr12[max_length_14] = {}; // Tạo ra một mảng rỗng
     int arr13[f] = {};
-    int arr14[2][max_length];
+    int arr14[2][max_length_14];
 
     // Gán giá trị cho mảng arr11 theo arr2
-    for (int i = max_length - 6; i < max_length; i++)
+    for (int i = max_length_14 - 6; i < max_length_14; i++)
     {
         arr11[i] = arr2[i - (max_length_14 - 6)]; 
     }
@@ -406,4 +408,46 @@ int main ()
         cout << endl; 
     }
     cout <<  "----------------------------------" << endl;
+
+    int arr15[11];
+    cout << "Enter the value of arr15: ";
+    for (int i = 0; i < 11; i++)
+    {
+        cin >> arr15[i];
+    }
+
+    cout << "arr15 = ";
+    for (int i = 0; i < 11; i++)
+    {
+        cout << arr15[i]; 
+    }
+    cout << endl; 
+
+    if (arr15[0] == 0)
+    {
+        string lastLine = "+1"; 
+        for (int i = 2; i < 11; i++)
+        {
+            lastLine += to_string(arr15[i]);
+        }
+        cout << lastLine; 
+        ofstream write_sdt("sdt.txt");
+        write_sdt << lastLine; 
+        write_sdt.close();
+    }
+    else
+    {
+        string lastLine = "+84";
+        for (int i = 2; i < 11; i++)
+        {
+            lastLine += to_string(arr15[i]);
+        }
+        cout << lastLine;
+        ofstream write_sdt("sdt.txt"); 
+        write_sdt << lastLine; 
+        write_sdt.close();
+    }
+
+    cout <<  "----------------------------------" << endl;
+
 }

@@ -43,7 +43,7 @@
     17.(done) Kết hợp với mảng 1 chiều trước đó tạo thành vector 2 chiều 
     không cùng chiều dài (arr9 và arr2 tạo thành mảng arr11) (chèn số 0 vào phía trước)
 
-    18. Tạo 1 mảng hoặc vector kích thước 12 phần tử nhập vào số điện thoại **********, 
+    18.(done) Tạo 1 mảng hoặc vector kích thước 12 phần tử nhập vào số điện thoại **********, 
     xét ký tự đầu nếu là 0 thì +1 (đầu số Mỹ) nếu là 1 thì đầu số Việt Nam +84 
     sau đó chuyển mảng thành chuỗi số điện thoại bắt đầu từ phần tử 2 
     đồng thời thay 0 thành +84 hoặc +1. Sau đó lưu vào file sdt.txt
