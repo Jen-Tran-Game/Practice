@@ -63,3 +63,12 @@
     In ra mảng và vector
 
     23. Sau khi ra khỏi mảng hàm in lại mảng và vector sau đó nhận xét
+
+    24. Nhập vào mật khẩu so sánh mật khẩu nếu đúng thì in ra login success sai thì unauthorized lưu
+    password thuần ra txt
+
+    25. Vẫn là bài tập đó tạo chuỗi ngẫu nhiên -> lấy password + chuỗi random đó -> hash hsa256 ->
+    lưu ra file .json với key hashPass và value là mã đã hash, key salt value là random 
+    
+    26. Khi đăng nhập thì đọc trường salt và cộng với pass nhập vào sau đó hash HSA256 và so sánh với chuỗi
+    hashPass đã lưu
