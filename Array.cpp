@@ -314,7 +314,7 @@ int main ()
     // Chèn số 0 vào phía sau khi 2 mảng không bằng nhau 
     int length_2 = sizeof(arr2) / sizeof(arr2[0]); 
     int length_9 = sizeof(arr9) / sizeof(arr9[0]); 
-    int max_length = length_2 > length_9 ? length_2 : length_9; 
+    int max_length_10 = length_2 > length_9 ? length_2 : length_9; 
     int arr10[2][max_length]; 
     for (int i = 0; i < max_length; i++)
     {
@@ -352,47 +352,54 @@ int main ()
     }
     cout <<  "----------------------------------" << endl; 
 
-    int e;
+    // Nhập số phần tử cho mảng arr13
+    int f;
     cout << "Enter the number of elements: "; 
-    cin >> e; 
+    cin >> f; 
 
-    int max_length = e > 6 ? e : 6; 
+    int max_length_14 = f > 6 ? f : 6; 
     int arr11[max_length] = {}; // Tạo ra một mảng rỗng
     int arr12[max_length] = {}; // Tạo ra một mảng rỗng
-    int arr13[e] = {};
+    int arr13[f] = {};
     int arr14[2][max_length];
 
-    
+    // Gán giá trị cho mảng arr11 theo arr2
     for (int i = max_length - 6; i < max_length; i++)
     {
-        arr11[i] = arr2[i - (max_length - 6)]; 
+        arr11[i] = arr2[i - (max_length_14 - 6)]; 
     }
    
-    cout << "Enter the value of elements of array10: "; 
-    for (int i = 0; i < e; i++)
+   // Nhập giá trị cho mảng arr13
+    cout << "Enter the value of elements of array13: "; 
+    for (int i = 0; i < f; i++)
     {
         cin >> arr13[i]; 
     }
-    for (int i = max_length - e; i < max_length; i++)
+
+    // Gán giá trị cho arr12 theo arr13
+    for (int i = max_length_14 - f; i < max_length_14; i++)
     {
-        arr12[i] = arr13[i - (max_length - e)]; 
+        arr12[i] = arr13[i - (max_length_14 - f)]; 
     }
 
-    for (int i = 0; i < max_length; i++)
+    // Gán giá trị của mảng arr11 cho dòng 1 của mảng arr14
+    for (int i = 0; i < max_length_14; i++)
     {
         arr14[0][i] = arr11[i];
     }
 
-    for (int i = 0; i < max_length; i++)
+    // Gán giá trị của mảng arr12 cho dòng 2 của mảng arr14
+    for (int i = 0; i < max_length_14; i++)
     {
         arr14[1][i] = arr12[i]; 
     }
 
+    // In ra mảng 2 chiều arr14
     cout << "arr14 =  "; 
     cout << endl; 
     for (int i = 0; i < 2; i++)
     {
-        for (int j = 0; j < max_length; j++)
+        for (int j = 0; j < max_length_14; j++)
         {
             cout << setw(4) << arr14[i][j] << " ";
         }
