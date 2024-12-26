@@ -49,7 +49,7 @@
     đồng thời thay 0 thành +84 hoặc +1. Sau đó lưu vào file sdt.txt
 
     19. Sau khi tạo file thành công thì tách những đoạn code đó ra thành các hàm xử lý 
-    VD: -Hàm nhập phần tử
+    VD: -(done) Hàm nhập phần tử 
         -Hàm kiểm tra phần tử đầu
         -Hàm chuyển mảng thành string và replace ký tự đầu thành +84 hoặc +1 
         sử dụng switch case

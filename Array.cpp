@@ -6,6 +6,26 @@
 
 using namespace std; 
 
+void enterArray (int arr[], int n, string name_in)
+{
+    cout << "Enter the value of " << name_in << ": "; 
+
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i]; 
+    }
+}
+
+void printArray (int arr[], int n, string name_out)
+{
+    cout << name_out;
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl << "----------------------------------" << endl
+}
+
 int main ()
 {
     int arr1[8] = {};
@@ -47,12 +67,7 @@ int main ()
     cout << endl << "----------------------------------" << endl;
 
     // In giá trị của mảng arr2
-    cout << "arr2 = ";
-    for (int i = 0; i < 6; i++)
-    {
-        cout << arr2[i] << " ";
-    }
-    cout << endl << "----------------------------------" << endl;  
+    printArray (arr2, 6, "arr2 = ");
 
     vector<int> arr3 = {1, 6, 9, 5, 4, 3, 8};
     arr3.resize(10); // Thay đổi kích thước của mảng arr3 thành 10 phần tử, chỗ nào không có mặc định là 0
@@ -63,11 +78,7 @@ int main ()
     arr3.pop_back(); // Xoá phần tử ở cuối mảng
 
     // In giá trị của vector arr3
-    cout << "arr3 = ";
-    for (int i = 0; i < arr3.size(); i++)
-    {
-        cout << arr3[i] << " ";
-    }
+    printArray (arr3, arr3.size(), "arr3 = ");
     cout << endl; 
     cout << "Size of arr3: " << arr3.size() << endl; // In ra số phần tử trong mảng arr3
     cout << "Sizeof of arr3: " << sizeof(arr3) << endl; // In ra kích thước của mảng arr3 tính theo byte
@@ -126,12 +137,7 @@ int main ()
     readFile_array.close(); 
 
     // In giá trị của vector arr4
-    cout << "arr4 = ";
-    for (int i = 0; i < arr4.size(); i++)
-    {
-        cout << arr4[i] << " ";
-    }
-    cout << endl << "----------------------------------" << endl; 
+    printArray (arr4, arr4.size(), "arr4 = ");
 
     // Gán mảng arr2 làm dòng đầu tiên cho mảng arr5
     int arr5[2][6];
@@ -164,11 +170,7 @@ int main ()
     cout << "Enter the number of elements of arr6: ";
     cin >> m; 
     int arr6[m];
-    cout << "Enter the value of arr6: ";
-    for (int i = 0; i < m; i++)
-    {
-        cin >> arr6[i] ; 
-    }
+    enterArray (arr6, m, "arr6");
 
     // Xoá một phần tử trong arr6   
     cout << "Enter the position you want to delete in arr6: "; 
@@ -180,24 +182,15 @@ int main ()
     m--; 
 
     // In giá trị của mảng arr6 sau khi xoá 1 phần tử 
-    cout << "arr6 = "; 
-    for (int i = 0; i < m; i++)
-    {
-        cout << arr6[i] << " ";
-    }
-    cout << endl << "----------------------------------" << endl; 
+    printArray (arr6, m, "arr6 = ");
 
     // Nhập số phần tử và giá trị cho mảng arr7
     int a; 
     cout << "Enter the number of elements of arr7: "; 
     cin >> a; 
     int arr7[a];
-    cout << "Enter value of arr7: "; 
-    for (int i = 0; i < a; i++)
-    {
-        cin >> arr7[i]; 
-    } 
-
+    enterArray (arr7, a, "arr7");
+    
     // Nhập mảng chứa các vị trí cần xoá trong mảng arr7
     int b; 
     cout << "Enter number of position you want to delete: "; 
@@ -224,23 +217,14 @@ int main ()
     }
 
     // In ra màn hình mảng arr7 sau khi đã xoá các phần tử
-    cout << "arr7 = "; 
-    for (int i = 0; i < a; i++)
-    {
-        cout << arr7[i] << " ";
-    }
-    cout << endl << "----------------------------------" << endl; 
+    printArray (arr7, a, "arr7 = ");
 
     // Nhập số phần tử và giá trị cho mảng arr8
     int c;
     cout << "Enter the number of elements of arr8: "; 
     cin >> c; 
     int arr8[c]; 
-    cout << "Enter the value of arr8: "; 
-    for (int i = 0; i < c; i++)
-    {
-        cin >> arr8[i]; 
-    }
+    enterArray (arr8, c, "arr8");
 
     // Nhập mảng chứa các vị trí cần xoá trong mảng arr8
     int d; 
@@ -295,23 +279,14 @@ int main ()
     cout << endl; 
     
     // In ra mảng arr8 sau khi xoá các phần tử
-    cout << "arr8 = "; 
-    for (int i = 0; i < c; i++)
-    {
-        cout << arr8[i] << " ";
-    }
-    cout << endl << "----------------------------------" << endl; 
+    printArray (arr8, c, "arr8 = ");
 
     // Nhập số phần tử và giá trị cho mảng arr9
     int e;
     cout << "Enter the number of elements of arr9: "; 
     cin >> e; 
     int arr9[e]; 
-    cout << "Enter the value of arr9: "; 
-    for (int i = 0; i < e; i++)
-    {
-        cin >> arr9[i]; 
-    } 
+    enterArray (arr9, e, "arr9");
 
     // Chèn số 0 vào phía sau khi 2 mảng không bằng nhau 
     int length_2 = sizeof(arr2) / sizeof(arr2[0]); 
@@ -372,11 +347,7 @@ int main ()
     }
    
    // Nhập giá trị cho mảng arr13
-    cout << "Enter the value of elements of array13: "; 
-    for (int i = 0; i < f; i++)
-    {
-        cin >> arr13[i]; 
-    }
+    enterArray (arr13, f, "arr13");
 
     // Gán giá trị cho arr12 theo arr13
     for (int i = max_length_14 - f; i < max_length_14; i++)
@@ -410,12 +381,8 @@ int main ()
     cout <<  "----------------------------------" << endl;
 
     int arr15[11];
-    cout << "Enter the value of arr15: ";
-    for (int i = 0; i < 11; i++)
-    {
-        cin >> arr15[i];
-    }
-
+    // Nhập giá trị của mảng arr15
+    enterArray (arr15, 11, "arr15");
     cout << "arr15 = ";
     for (int i = 0; i < 11; i++)
     {
