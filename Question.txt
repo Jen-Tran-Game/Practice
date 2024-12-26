@@ -48,12 +48,12 @@
     sau đó chuyển mảng thành chuỗi số điện thoại bắt đầu từ phần tử 2 
     đồng thời thay 0 thành +84 hoặc +1. Sau đó lưu vào file sdt.txt
 
-    19. Sau khi tạo file thành công thì tách những đoạn code đó ra thành các hàm xử lý 
+    19.(done) Sau khi tạo file thành công thì tách những đoạn code đó ra thành các hàm xử lý 
     VD: -(done) Hàm nhập phần tử 
-        -Hàm kiểm tra phần tử đầu
-        -Hàm chuyển mảng thành string và replace ký tự đầu thành +84 hoặc +1 
+        -(done) Hàm kiểm tra phần tử đầu
+        -(done) Hàm chuyển mảng thành string và replace ký tự đầu thành +84 hoặc +1 
         sử dụng switch case
-        -Hàm lưu và đọc file 
+        -(done) Hàm lưu và đọc file 
 
     20. Sau đó tạo 1 mảng và 1 vector
 
