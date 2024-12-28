@@ -6,72 +6,57 @@
 
 using namespace std; 
 
-void enterArray (int arr[], int n, string name_in);
-void printString (int arr[], int n, string &lastLine);
-void testFirst (int arr[], int n, string &lastLine);
-void writeFile_func (string lastLine, string name_file);
-
-void enterArray (int arr[], int n, string name_in)
+void change_func (vector<int> vector_2, int arr[], int n)
 {
-    cout << "Enter the value of " << name_in << ": "; 
-
+    cout << "Enter the value of arr_func: "; 
     for (int i = 0; i < n; i++)
     {
-        cin >> arr[i]; 
+        cin >> arr[i];
     }
-}
-
-void writeFile_func (string lastLine, string name_file)
-{
-    cout << lastLine; 
-    ofstream write_point(name_file);
-    write_point << lastLine; 
-    write_point.close(); 
-}
-
-void printString (int arr[], int n, string &lastLine)
-{
-    for (int i = 2; i < n; i++)
+    vector_2.push_back(2);
+    vector_2.push_back(9);
+    cout << "vector_func = ";
+    for (int i = 0; i < vector_2.size(); i++)
     {
-        lastLine += to_string(arr[i]);
+        cout << vector_2[i] << " ";
     }
-}
 
-void testFirst (int arr[], int n, string &lastLine, string name_file)
-{
-    switch (arr[0])
+    cout << endl; 
+    cout << "arr_func = ";
+    for (int i = 0; i < n; i++)
     {
-        case 0: 
-            lastLine = "+1";
-            printString (arr, n, lastLine);
-            writeFile_func (lastLine, name_file);
-            break;
-        case 1: 
-            lastLine = "+84";
-            printString (arr, n, lastLine);
-            writeFile_func (lastLine, name_file);
-            break;
+        cout << arr[i] << " "; 
     }
 }
-
 
 int main()
 {    
-    int arr15[11];
+    vector<int> vector_1 = {2, 3, 5, 6, 7, 8}; 
+    int n; 
+    cout << "Enter the number of elements of array: "; 
+    cin >> n; 
 
-    // Nhập giá trị của mảng arr15
-    enterArray (arr15, 11, "arr15");
-    cout << "arr15 = ";
-    for (int i = 0; i < 11; i++)
+    cout << "Enter the value of array: "; 
+    int array[n]; 
+    for (int i = 0; i < n; i++)
     {
-        cout << arr15[i]; 
+        cin >> array[i]; 
     }
-    cout << endl; 
+    
+    change_func (vector_1, array, n);
+    cout << endl;
+    cout << "vector_1_main = "; 
+    for (int i = 0; i < vector_1.size(); i++)
+    {
+        cout << vector_1[i] << " "; 
+    }
 
-    string lastLine;
-    string write_sdt;
-    testFirst (arr15, 11, lastLine, "sdt.txt");
-    cout << endl <<"----------------------------------" << endl;
+    cout << endl; 
+    cout << "array_main = "; 
+    for (int i = 0; i < n; i++)
+    {
+        cout << array[i] << " ";
+    }
 }
 
 

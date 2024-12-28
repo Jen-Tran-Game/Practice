@@ -55,14 +55,15 @@
         sử dụng switch case
         -(done) Hàm lưu và đọc file 
 
-    20. Sau đó tạo 1 mảng và 1 vector
+    20.(done) Sau đó tạo 1 mảng và 1 vector 
 
-    21. Tạo chương trình con với 2 tham số là mảng và vector
+    21.(done) Tạo chương trình con với 2 tham số là mảng và vector
 
-    22. Bên trong thay đổi giá trị phần tử mảng truyền vào, thay đổi giá trị vector. 
+    22.(done) Bên trong thay đổi giá trị phần tử mảng truyền vào, thay đổi giá trị vector. 
     In ra mảng và vector
 
-    23. Sau khi ra khỏi mảng hàm in lại mảng và vector sau đó nhận xét
+    23.(done) Sau khi ra khỏi hàm in lại mảng và vector sau đó nhận xét (mặc dù trong hàm change_func ta dùng
+    int arr[] nhưng thực chất là đang truyền tham chiếu)
 
     24. Nhập vào mật khẩu so sánh mật khẩu nếu đúng thì in ra login success sai thì unauthorized lưu
     password thuần ra txt

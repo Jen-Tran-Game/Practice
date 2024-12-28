@@ -396,7 +396,7 @@ int main ()
         arr11[i] = arr2[i - (max_length_14 - 6)]; 
     }
    
-   // Nhập giá trị cho mảng arr13
+    // Nhập giá trị cho mảng arr13
     enterArray (arr13, f, "arr13");
 
     // Gán giá trị cho arr12 theo arr13
@@ -446,4 +446,5 @@ int main ()
     testFirst (arr15, 11, lastLine, "sdt.txt");
     cout << endl <<"----------------------------------" << endl;
 
+    
 }
