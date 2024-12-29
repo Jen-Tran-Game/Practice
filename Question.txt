@@ -65,7 +65,7 @@
     23.(done) Sau khi ra khỏi hàm in lại mảng và vector sau đó nhận xét (mặc dù trong hàm change_func ta dùng
     int arr[] nhưng thực chất là đang truyền tham chiếu)
 
-    24. Nhập vào mật khẩu so sánh mật khẩu nếu đúng thì in ra login success sai thì unauthorized lưu
+    24.(done) Nhập vào mật khẩu so sánh mật khẩu nếu đúng thì in ra login success sai thì unauthorized lưu
     password thuần ra txt
 
     25. Vẫn là bài tập đó tạo chuỗi ngẫu nhiên -> lấy password + chuỗi random đó -> hash hsa256 ->
