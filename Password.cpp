@@ -6,5 +6,8 @@ using namespace std;
 
 int main ()
 {
+    int n; 
+    int password[n];
+
     
 }
