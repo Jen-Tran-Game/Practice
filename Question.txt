@@ -65,9 +65,11 @@
     23.(done) Sau khi ra khỏi hàm in lại mảng và vector sau đó nhận xét (mặc dù trong hàm change_func ta dùng
     int arr[] nhưng thực chất là đang truyền tham chiếu)
 
-    24.(done) Nhập vào mật khẩu so sánh mật khẩu nếu đúng thì in ra login success sai thì unauthorized lưu
-    password thuần ra txt
+    24.(done) Có 2 option: đăng ký và đăng nhập. Chọn số 0 nếu muốn đăng ký, chọn số 1 nếu muốn đăng nhập. 
 
+    25. Đăng ký sẽ ghi username và password vào file txt 
+
+    25. 
     25. Vẫn là bài tập đó tạo chuỗi ngẫu nhiên -> lấy password + chuỗi random đó -> hash hsa256 ->
     lưu ra file .json với key hashPass và value là mã đã hash, key salt value là random 
     
