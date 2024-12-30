@@ -26,7 +26,7 @@ void write_pw_func (string password)
 
 void enterPassword_login (string &inputPassword)
 {
-    cout << "Enter your password you set: ";
+
     cin >> inputPassword; 
 }
 
@@ -47,6 +47,8 @@ int main ()
     }
     else
     {
+        bool loginSuccess = false; 
+        cout << "Enter your password you set: ";
         enterPassword_login (inputPassword); 
 
         // Đọc password trong file txt
@@ -54,22 +56,19 @@ int main ()
         fstream read_pw("password.txt", fstream::in);
         getline (read_pw, storedPassword);
         read_pw.close();
-
-        // Kiểm tra xem password nhập vào có giống với password được tạo không
-        if (inputPassword == storedPassword)
+        while (!loginSuccess)
         {
-            cout << "Login successfully";
+            // Kiểm tra xem password nhập vào có giống với password được tạo không
+            if (inputPassword == storedPassword)
+            {   
+                cout << "Login successfully";
+                loginSuccess = true; 
+            }
+            else
+            {
+                cout << "Unauthorized. Please try again: ";
+                enterPassword_login (inputPassword);
+            }   
         }
-        else
-        {
-            cout << "Unauthorized";
-        
-        }   
-    }
-
-    
-    
-
-     
-     
+    }     
 }
