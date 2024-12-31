@@ -67,9 +67,13 @@
 
     24.(done) Có 2 option: đăng ký và đăng nhập. Chọn số 0 nếu muốn đăng ký, chọn số 1 nếu muốn đăng nhập. 
 
-    25. Đăng ký sẽ ghi username và password vào file txt 
+    25.(done) Đăng ký sẽ ghi password vào file password.txt. 
 
-    25. 
+    26.(done) Đăng nhập sẽ cho nhập password, sau đó so sánh với password được ghi trong file password.txt nếu đúng thì in ra 
+    "Login successfully". Nếu sai thì in ra "Unauthorized. Please try again", sau đó cho phép nhập lại cho đến khi đúng.
+
+    27. Tạo file users.json lưu username và password
+     
     25. Vẫn là bài tập đó tạo chuỗi ngẫu nhiên -> lấy password + chuỗi random đó -> hash hsa256 ->
     lưu ra file .json với key hashPass và value là mã đã hash, key salt value là random 
     
