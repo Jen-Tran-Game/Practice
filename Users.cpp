@@ -1,6 +1,5 @@
 #include <iostream> 
 #include <string> 
-#include <nlohmann/json.hpp> 
 #include <fstream>
 #include <iomanip>  
 
@@ -81,7 +80,7 @@ int main ()
             }
             else 
             {
-                cout << "Unthorized. Please try again" << endl; 
+                cout << "Unauthorized. Please try again" << endl; 
             }
         }
     }
