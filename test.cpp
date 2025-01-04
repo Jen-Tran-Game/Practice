@@ -22,7 +22,8 @@ int main ()
     create_file.close(); 
     if (mode == 0)
     {
-        do {
+        do 
+        {
             cout << "Create username: "; 
             cin >> inputUsername;
         }
