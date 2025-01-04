@@ -22,12 +22,17 @@ int main ()
     create_file.close(); 
     if (mode == 0)
     {
-        do 
+        cout << "Create username: "; 
+        cin >> inputUsername;
+        for (int i = 0; i < users.size(); i++)
         {
-            cout << "Create username: "; 
-            cin >> inputUsername;
+            if (inputUsername == users[i].username)
+            {
+                cout << "Username is already taken. Please choose another username" << endl; 
+                
+            }
         }
-        while ()
+
         fstream write_usr_pw ("Users.txt", fstream::app);
         write_usr_pw << "Username: " << username; 
         write_usr_pw.close(); 
