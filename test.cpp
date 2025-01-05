@@ -5,38 +5,24 @@
 
 using namespace std; 
 
-struct User {
-    string username; 
-    string password; 
-};
-
 int main ()
 {
-    vector<User> users; 
-    User user; 
-    string inputUsername, inputPassword, storedPassword;  
-    int mode;
-    cout << "Press 0: Sign up" << endl << "Press 1: Log in " << endl; 
-    cin >> mode;
-    fstream create_file ("Users.json", fstream::out);
-    create_file.close(); 
-    if (mode == 0)
+    string username, password, inputUsername, inputPassword, storedPassword; 
+    int mode; 
+    cout << "Press 1: Sign up \nPress 2: Log in" << endl; 
+    cin >> mode; 
+    fstream createFile ("users.json", fstream::out); 
+    createFile << 
+    createFile.close(); 
+    if (mode == 1)
     {
-        cout << "Create username: "; 
-        cin >> inputUsername;
-        for (int i = 0; i < users.size(); i++)
-        {
-            if (inputUsername == users[i].username)
-            {
-                cout << "Username is already taken. Please choose another username" << endl; 
-                
-            }
-        }
-
-        fstream write_usr_pw ("Users.txt", fstream::app);
-        write_usr_pw << "Username: " << username; 
-        write_usr_pw.close(); 
-
+        cout << "Create your username: ";
+        cin >> username; 
+        cout << "Your new password: "; 
+        cin >> password; 
+        fstream writeFile ("users.json", fstream::app)
+        writeFile << "Username: " << username << endl; 
+        writeFile << "Password: " << password << endl; 
+        
     }
-
 }
