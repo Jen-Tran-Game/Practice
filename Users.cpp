@@ -1,93 +1,177 @@
-#include <iostream> 
-#include <string> 
+#include <iostream>
 #include <fstream>
-#include <iomanip>  
+#include <string>
 
-using json = nlohmann::json; 
-using namespace std; 
+using namespace std;
 
-int main ()
-{
-    string username, password, inputUsername, inputPassword, storedPassword;     
-    int mode; 
-    json j; 
-    cout << "Press 0: Sign up " << endl << "Press 1: Log in ";
-    cout << "Your option: "; 
-    cin >> mode; 
-    fstream write_usr_pw ("users.json", fstream::out); 
-    write_usr_pw << j; 
-    write_usr_pw.close(); 
-    j["users"] = json::array();
-    if (mode == 0)
-    {
-        cout << "Create username: "; 
-        cin >> username; 
+// Khai báo cấu trúc User
+struct User {
+    string username;
+    string password;
+};
 
-        bool usernameTaken = false; 
-        for (const auto &user : j["users"])
-        {
-            if (users["username"] == username)
-            {
-                usernameTaken = true; 
-                break; 
+int main() {
+    const int MAX_USERS = 100; // Giới hạn số lượng người dùng
+    User users[MAX_USERS];
+    int userCount = 0;
+    int choice;
+    bool usernameTaken;
+    bool loggedIn;
+    string inputUsername, inputPassword, storedPassword;
+    char moreUsers = 'n';
+
+    // Đọc dữ liệu từ file JSON nếu tồn tại
+    fstream inFile("users.json", fstream::out);
+    if (inFile.is_open()) {
+        string line;
+        while (getline(inFile, line)) {
+            // Duyệt qua từng ký tự trong chuỗi để tìm username và password
+            size_t i = 0;
+            while (i < line.size()) {
+                if (line[i] == '"' && i + 11 < line.size() && line[i + 1] == 'u' && line[i + 2] == 's' && line[i + 3] == 'e' && line[i + 4] == 'r' && line[i + 5] == 'n' && line[i + 6] == 'a' && line[i + 7] == 'm' && line[i + 8] == 'e' && line[i + 9] == '"' && line[i + 10] == ':') {
+                    i += 13; 
+                    // Bỏ qua phần "username": "
+                    string username = "";
+                    while (i < line.size() && line[i] != '"') {
+                        username += line[i];
+                        ++i;
+                    }
+                    users[userCount].username = username;
+                }
+                if (line[i] == '"' && i + 11 < line.size() && line[i + 1] == 'p' && line[i + 2] == 'a' && line[i + 3] == 's' && line[i + 4] == 's' && line[i + 5] == 'w' && line[i + 6] == 'o' && line[i + 7] == 'r' && line[i + 8] == 'd' && line[i + 9] == '"' && line[i + 10] == ':') {
+                    i += 13; // Bỏ qua phần "password": "
+                    string password = "";
+                    while (i < line.size() && line[i] != '"') {
+                        password += line[i];
+                        ++i;
+                    }
+                    users[userCount].password = password;
+                    userCount++;
+                }
+                ++i;
             }
         }
-        if (usernameTaken)
-        {
-            cout << "Username already taken. Please choose another username"; 
-            return 1; 
-        }
-        cout << "Create password: "; 
-        cin >> password; 
-
-        j["users"].push_back({{"username", username}, {"password", password}});
-        fstream read_usr_pw ("users.json", fstream::in); 
-        read_usr_pw << setw(4) << j << endl; 
-        cout << "Sign up successfully" << endl; 
+        inFile.close();
     }
-    else if (mode == 1)
-    {
-        cout << "Enter your username: "; 
-        cin >> inputUsername;
 
-        bool userFound = false; 
-        for (const auto &user : j["users"])
-        {
-            if (users["username"] == inputUsername)
-            {
-                storedPassword == users["password"];
-                userFound = true; 
-                break; 
-            }
+    do {
+        cout << "1. Register" << endl;
+        cout << "2. Log in" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        if (choice == 1) {
+            do {
+                usernameTaken = false;
+                cout << "Enter your username: ";
+                cin >> users[userCount].username;
+
+                // Kiểm tra xem username đã tồn tại chưa
+                for (int i = 0; i < userCount; ++i) {
+                    bool isEqual = true;
+                    if (users[i].username.size() == users[userCount].username.size()) {
+                        for (size_t j = 0; j < users[i].username.size(); ++j) {
+                            if (users[i].username[j] != users[userCount].username[j]) {
+                                isEqual = false;
+                                break;
+                            }
+                        }
+                    } else {
+                        isEqual = false;
+                    }
+
+                    if (isEqual) {
+                        usernameTaken = true;
+                        cout << "Username already taken. Please choose another username." << endl;
+                        break;
+                    }
+                }
+
+                if (!usernameTaken) {
+                    cout << "Enter your password: ";
+                    cin >> users[userCount].password;
+                    userCount++;
+
+                    // Ghi dữ liệu vào file JSON
+                    fstream outFile("users.json", fstream::app);
+                    if (outFile.is_open()) {
+                        outFile << "        {\n";
+                        outFile << "            \"username\": \"" << users[userCount - 1].username << "\",\n";
+                        outFile << "            \"password\": \"" << users[userCount - 1].password << "\"\n";
+                        outFile << "        },\n";
+                        outFile.close();
+                        cout << "User registered successfully." << endl;
+                    } else {
+                        cerr << "Unable to open file for writing." << endl;
+                    }
+                }
+            } while (usernameTaken);
+
+        } else if (choice == 2) {
+            loggedIn = false;
+            do {
+                cout << "Enter your username: ";
+                cin >> inputUsername;
+
+                // Kiểm tra xem username có tồn tại không
+                bool userFound = false;
+                for (int i = 0; i < userCount; ++i) {
+                    bool isEqual = true;
+                    if (users[i].username.size() == inputUsername.size()) {
+                        for (size_t j = 0; j < users[i].username.size(); ++j) {
+                            if (users[i].username[j] != inputUsername[j]) {
+                                isEqual = false;
+                                break;
+                            }
+                        }
+                    } else {
+                        isEqual = false;
+                    }
+
+                    if (isEqual) {
+                        storedPassword = users[i].password;
+                        userFound = true;
+                        break;
+                    }
+                }
+
+                if (!userFound) {
+                    cout << "Wrong username. Please try again." << endl;
+                } else {
+                    do {
+                        cout << "Enter your password: ";
+                        cin >> inputPassword;
+
+                        bool passwordMatch = true;
+                        if (inputPassword.size() == storedPassword.size()) {
+                            for (size_t k = 0; k < inputPassword.size(); ++k) {
+                                if (inputPassword[k] != storedPassword[k]) {
+                                    passwordMatch = false;
+                                    break;
+                                }
+                            }
+                        } else {
+                            passwordMatch = false;
+                        }
+
+                        if (passwordMatch) {
+                            cout << "Log in successfully." << endl;
+                            loggedIn = true;
+                        } else {
+                            cout << "Wrong password. Please try again." << endl;
+                        }
+                    } while (!loggedIn);
+                }
+            } while (!loggedIn);
+
+        } else {
+            cout << "Invalid choice." << endl;
         }
 
-        if (!userFound)
-        {
-            cout << "Username not found" << endl; 
-            return 1; 
-        }
+        cout << "Do you want to perform another operation? (y/n): ";
+        cin >> moreUsers;
 
-        bool loggedIn = false; 
-        while (!loggedIn)
-        {
-            cout << "Enter your password: "; 
-            cin >> inputPassword; 
-            
-            if (inputPassword == storedPassword)
-            {
-                cout << "Login successfully" << endl; 
-                loggedIn = true; 
-            }
-            else 
-            {
-                cout << "Unauthorized. Please try again" << endl; 
-            }
-        }
-    }
-    else
-    {
-        cout << "Invalid option selected" << endl; 
-    }
+    } while (moreUsers == 'y' || moreUsers == 'Y');
 
     return 0;
 }
