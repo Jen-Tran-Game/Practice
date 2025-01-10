@@ -95,6 +95,8 @@ int main() {
                     // Ghi dữ liệu vào file JSON
                     fstream outFile("users.json", fstream::app);
                     if (outFile.is_open()) {
+                        outFile << "{\n"; 
+                        outFile << "  "users": ["
                         outFile << "        {\n";
                         outFile << "            \"username\": \"" << users[userCount - 1].username << "\",\n";
                         outFile << "            \"password\": \"" << users[userCount - 1].password << "\"\n";

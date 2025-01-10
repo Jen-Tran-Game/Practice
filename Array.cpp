@@ -10,7 +10,6 @@ void enterArray (int arr[], int n, string name_in);
 void printString (int arr[], int n, string &lastLine);
 void testFirst (int arr[], int n, string &lastLine);
 void writeFile_func (string lastLine, string name_file);
-void enterArray (int arr[], int n, string name_in);
 void printArray (int arr[], int n, string name_out);
 
 void enterArray (int arr[], int n, string name_in)
@@ -31,16 +30,6 @@ void printArray (int arr[], int n, string name_out)
         cout << arr[i] << " ";
     }
     cout << endl << "----------------------------------" << endl
-}
-
-void enterArray (int arr[], int n, string name_in)
-{
-    cout << "Enter the value of " << name_in << ": "; 
-
-    for (int i = 0; i < n; i++)
-    {
-        cin >> arr[i]; 
-    }
 }
 
 void writeFile_func (string lastLine, string name_file)
