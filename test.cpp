@@ -2,15 +2,13 @@
 #include <string> 
 #include <fstream>
 #include <iomanip> 
-#include <jsoncpp/json/value.h>
-#include <jsoncpp/json/json.h>
+#include "json.hpp"
 
-using namespace std; 
+using namespace std;
+using json = nlohmann::json;  
 
 int main ()
 {
-    string username, password;
-    int mode; 
-    
+
 
 }
