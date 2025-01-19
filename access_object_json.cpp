@@ -11,8 +11,12 @@ int main ()
     j["age"] = 21; 
     j["school"] = "HCMUTE";
 
-    string name = 
+    string name = j["name"]; 
+    int age = j["age"]; 
+    string school = j["school"]; 
 
-    cout << "Name: " << name
+    cout << "Name: " << name << endl; 
+    cout << "Age: " << age << endl; 
+    cout << "School: " << school << endl; 
     return 0; 
-}
+}      
