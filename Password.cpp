@@ -30,7 +30,7 @@ void enterPassword_login (string &inputPassword)
     cin >> inputPassword; 
 }
 
-int main ()
+int main()
 {     
     // Lựa chọn đăng nhập hoặc đăng ký 
     int mode; 

@@ -4,7 +4,7 @@
 using namespace std; 
 using json = nlohmann::json; 
 
-int main ()
+int main()
 {
     json j = json::array({"C++", "Python", "JavaScript"});
 

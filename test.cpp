@@ -7,7 +7,7 @@
 using namespace std;
 using json = nlohmann::json;  
 
-int main ()
+int main()
 {
     int mode; 
     string password;  

@@ -4,7 +4,7 @@
 using namespace std; 
 using json = nlohmann::json; 
 
-int main ()
+int main()
 {
     json j; 
     j["name"] = "Jen_Tran"; 
