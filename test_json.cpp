@@ -12,9 +12,9 @@ int main()
     cin >> targetIndex; 
 
     json outData; 
-    fstream outFile ("users.json", fstream::in); 
-    getline (outFile, outData); 
-    outFile.close(); 
+    ifstream inFile("users.json"); 
+    inFile >> outData; 
+    inFile.close(); 
 
     auto user = outData["users"][targetIndex]; 
     string username = user["Username"].get<string>(); 
