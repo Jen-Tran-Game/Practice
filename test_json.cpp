@@ -1,9 +1,9 @@
 #include <iostream> 
 #include <fstream> 
 #include <iomanip>
+#include <sstream>
 #include "json.hpp"
-#include "sha.h"
-#include "macros.h"
+#include <openssl/sha.h>
 
 using namespace std; 
 using ordered_json = nlohmann::ordered_json; // Để giữ thứ tự trong lúc đọc và ghi file 
