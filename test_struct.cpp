@@ -12,8 +12,14 @@ struct Person
 
 int main ()
 {
-    Person person; 
-    
+    Person person1; 
+    person1.name = "Jen_Tran"; 
+    person1.age = 21; 
+    person1.height = 150; 
+
+    cout << "Name: " << person1.name << endl; 
+    cout << "Age: " << person1.age << endl; 
+    cout << "Height: " << person1.height << endl;
 
     return 0; 
 }
