@@ -1,25 +1,45 @@
 #include <iostream>
 #include <string>
+#include <vector>
+#include <fstream>
+#include "json.hpp"
 
 using namespace std; 
-
+using ordered_json = nlohmann::ordered_json;
 struct Person
 {
     string name;
     int age; 
     float height; 
+    string school; 
 };
 
 int main ()
 {
-    Person person1; 
-    person1.name = "Jen_Tran"; 
-    person1.age = 21; 
-    person1.height = 150; 
+    ordered_json outData; 
+    ifstream inFile ("test_struct.json");
+    inFile >> outData;
+    inFile.close();
 
-    cout << "Name: " << person1.name << endl; 
-    cout << "Age: " << person1.age << endl; 
-    cout << "Height: " << person1.height << endl;
+    vector<Person> users; 
+    for (const auto& item : outData)
+    {
+        Person user;
+        user.name = item.at("name").get<string>();
+        user.age = item.at("age").get<int>();
+        user.height = item.at("height").get<float>(); 
+        user.school = item.at("school").get<string>();
+        users.push_back(user);
 
-    return 0; 
+    }
+    for (const auto& user : users)
+    {
+        cout << "Name: " << user.name << endl; 
+        cout << "Age: " << user.age << endl; 
+        cout << "Height: " << user.height << endl; 
+        cout << "School: " << user.school << endl; 
+        cout << "----------------------------" << endl; 
+    }
+
+    return 0;
 }
