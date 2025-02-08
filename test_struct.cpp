@@ -25,10 +25,10 @@ int main ()
     for (const auto& item : outData)
     {
         Person user;
-        user.name = item.at("name").get<string>();
-        user.age = item.at("age").get<int>();
-        user.height = item.at("height").get<float>(); 
-        user.school = item.at("school").get<string>();
+        user.name = item["name"].get<string>();
+        user.age = item["age"].get<int>();
+        user.height = item["height"].get<float>(); 
+        user.school = item["school"].get<string>();
         users.push_back(user);
 
     }
