@@ -12,6 +12,8 @@ struct Person
     int age; 
     float height; 
     string school; 
+    string username;
+    string password;
 };
 
 int main ()
@@ -29,6 +31,8 @@ int main ()
         user.age = item["age"].get<int>();
         user.height = item["height"].get<float>(); 
         user.school = item["school"].get<string>();
+        user.username = item["username"].get<string>(); 
+        user.password = item["password"].get<string>();
         users.push_back(user);
 
     }
@@ -38,6 +42,8 @@ int main ()
         cout << "Age: " << user.age << endl; 
         cout << "Height: " << user.height << endl; 
         cout << "School: " << user.school << endl; 
+        cout << "Username: " << user.username << endl; 
+        cout << "Password: " << user.password << endl;
         cout << "----------------------------" << endl; 
     }
 
