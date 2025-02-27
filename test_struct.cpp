@@ -34,16 +34,16 @@ int main ()
     {
         if (account["name"].get<string>() == inputName)
         {
-            cout << "User found !" << endl; 
             cout << "Name: " << account["name"] << endl; 
             cout << "Age: " << account["age"] << endl; 
             cout << "Height: " << account["height"] << endl;
             cout << "School: " << account["school"] << endl;
             cout << "Username: " << account["username"] << endl; 
             cout << "Password: " << account["password"] << endl; 
-            break;
+            return 0; 
         }
     }
+    cout << "User not found !" << endl; 
     // vector<Person> users; 
     // for (const auto& account : outData)
     // {
