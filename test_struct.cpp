@@ -24,16 +24,23 @@ int main ()
     inFile >> outData;
     inFile.close();
 
-    // cout << outData[2]["height"];
+    cout << outData[2]["height"] << endl;
+    cout << outData[0]["school"] << endl;
 
     cout << "Enter name: ";
     cin >> inputName;
 
     for (const auto& account : outData)
     {
-        if (account["username"].get<string>() == inputName)
+        if (account["name"].get<string>() == inputName)
         {
-            cout << "Found successfully";
+            cout << "User found !" << endl; 
+            cout << "Name: " << account["name"] << endl; 
+            cout << "Age: " << account["age"] << endl; 
+            cout << "Height: " << account["height"] << endl;
+            cout << "School: " << account["school"] << endl;
+            cout << "Username: " << account["username"] << endl; 
+            cout << "Password: " << account["password"] << endl; 
             break;
         }
     }
