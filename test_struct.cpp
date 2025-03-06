@@ -18,28 +18,39 @@ struct Person
 
 int main ()
 {
-    string inputName; 
+    string inputUsername;
+    string inputPassword; 
     ordered_json outData; 
     ifstream inFile ("test_struct.json");
     inFile >> outData;
     inFile.close();
 
-    cout << outData[2]["height"] << endl;
-    cout << outData[0]["school"] << endl;
+    // cout << outData[2]["height"] << endl;
+    // cout << outData[0]["school"] << endl;
 
-    cout << "Enter name: ";
-    cin >> inputName;
+    cout << "Enter username: ";
+    cin >> inputUsername;
 
     for (const auto& account : outData)
     {
-        if (account["name"].get<string>() == inputName)
+        if (account["username"].get<string>() == inputUsername)
         {
-            cout << "Name: " << account["name"] << endl; 
-            cout << "Age: " << account["age"] << endl; 
-            cout << "Height: " << account["height"] << endl;
-            cout << "School: " << account["school"] << endl;
-            cout << "Username: " << account["username"] << endl; 
-            cout << "Password: " << account["password"] << endl; 
+            // cout << "Name: " << account["name"] << endl; 
+            // cout << "Age: " << account["age"] << endl; 
+            // cout << "Height: " << account["height"] << endl;
+            // cout << "School: " << account["school"] << endl;
+            // cout << "Username: " << account["username"] << endl; 
+            // cout << "Password: " << account["password"] << endl; 
+            cout << "Enter password: ";
+            cin >> inputPassword;
+            if (account["password"].get<string>() == inputPassword)
+            {
+                cout << "Login successfully!" << endl; 
+            }
+            else 
+            {
+                cout << "Login unsuccessfully!" << endl; 
+            }
             return 0; 
         }
     }
